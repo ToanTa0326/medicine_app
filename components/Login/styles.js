@@ -21,9 +21,9 @@ export default styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 24,
-    fontWeight: "600",
+    fontWeight: "700",
     color: STYLES.mainColor,
-    paddingVertical: 24,
+    paddingVertical: 40,
   },
   inputBox: {
     gap: 16,
@@ -33,7 +33,7 @@ export default styles = StyleSheet.create({
   },
   label: {
     fontSize: 20,
-    fontWeight: "500",
+    fontWeight: "600",
     color: STYLES.blackText,
   },
   innerContainer: {
@@ -48,7 +48,23 @@ export default styles = StyleSheet.create({
   },
   forgetText: {
     textAlign: "right",
-    fontSize: 12,
+    color: STYLES.mainColor,
+    fontWeight: "500",
+  },
+  button: {
+    width: 260,
+    backgroundColor: STYLES.mainColor,
+    borderRadius: 30,
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    marginBottom: 8,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "medium",
+  },
+  signupText: {
     color: STYLES.mainColor,
     fontWeight: "500",
   },

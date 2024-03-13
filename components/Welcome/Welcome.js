@@ -18,7 +18,7 @@ const Welcome = ({ navigation }) => {
         </Text>
         <View style={styles.buttonContainer}>
           <Button
-            title="Log In"
+            title="Login"
             buttonStyle={styles.button}
             titleStyle={styles.buttonText}
             onPress={() => navigation.navigate("Login")}

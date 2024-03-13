@@ -4,6 +4,7 @@ import ArrowLeftIcon from "../../assets/icons/arrow_left.png";
 import styles from "./styles";
 import ImageButton from "../common/ImageButton/ImageButton";
 import BasicInput from "../common/BasicInput/BasicInput";
+import { Button } from "react-native-elements";
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -15,6 +16,10 @@ const Login = ({ navigation }) => {
 
   const onChangePassword = (text) => {
     setPassword(text);
+  };
+
+  const handleLogin = () => {
+    // Login API here
   };
 
   return (
@@ -47,8 +52,16 @@ const Login = ({ navigation }) => {
             onChangeText={onChangePassword}
             placeholder="********"
           />
-          <Text style={styles.forgetText} onPress={() => navigation.navigate("Signup")}>
+          <Text style={styles.forgetText} onPress={() => navigation.navigate("ResetPassword")}>
             Forget Password
+          </Text>
+        </View>
+        <View style={{ alignItems: "center", marginTop: 36 }}>
+          <Button title="Login" buttonStyle={styles.button} titleStyle={styles.buttonText} onPress={handleLogin} />
+        </View>
+        <View>
+          <Text style={{ textAlign: "center", marginTop: 24 }} onPress={() => navigation.navigate("Signup")}>
+            Don't have an account? <Text style={styles.signupText}>Sign up</Text>
           </Text>
         </View>
       </View>

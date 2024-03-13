@@ -1,17 +1,11 @@
-import { useRef, useState } from "react";
-import { Animated, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useState } from "react";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import PasswordHiddenIcon from "../../../assets/icons/password_hidden.png";
 import PasswordRevealIcon from "../../../assets/icons/password_reveal.png";
 import ImageButton from "../ImageButton/ImageButton";
 
 const CustomInput = ({ styles, value, placeholder, onChangeText, error, inputType, label, ...props }) => {
   const [showPassword, setShowPassword] = useState(true);
-
-  const handleTextChange = (text) => {
-    if (onChangeText) {
-      onChangeText(text);
-    }
-  };
 
   return (
     <View style={styles.containerStyle}>
