@@ -1,12 +1,13 @@
 import React from "react";
-import { SafeAreaView, View, Text, Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import { Button } from "react-native-elements";
 import logo from "../../assets/logo.png";
 import styles from "./styles";
+import Layout from "../common/Layout/Layout";
 
 const Welcome = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <Layout>
       <View style={styles.header}>
         <Image source={logo} style={styles.logo} />
         <Text style={styles.title}>MediCare</Text>
@@ -31,7 +32,7 @@ const Welcome = ({ navigation }) => {
           />
         </View>
       </View>
-    </SafeAreaView>
+    </Layout>
   );
 };
 

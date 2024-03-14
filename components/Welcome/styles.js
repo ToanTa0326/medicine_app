@@ -7,8 +7,7 @@ export default styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   header: {
-    height: "70%",
-    padding: 24,
+    height: "65%",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -23,13 +22,13 @@ export default styles = StyleSheet.create({
     fontWeight: "300",
   },
   content: {
-    padding: 20,
-    flex: 1,
+    paddingVertical: 20,
   },
   subtitle: {
     fontSize: 16,
     marginBottom: 20,
     color: STYLES.blackText,
+    textAlign: "center",
   },
   buttonContainer: {
     flexDirection: "column",
