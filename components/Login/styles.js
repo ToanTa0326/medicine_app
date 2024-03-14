@@ -2,11 +2,6 @@ import { StyleSheet } from "react-native";
 import STYLES from "../../constant/styles";
 
 export default styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    padding: 40,
-  },
   viewBox: {
     flexDirection: "row",
     alignItems: "center",
