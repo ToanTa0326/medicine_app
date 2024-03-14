@@ -4,8 +4,10 @@ import { Button } from "react-native-elements";
 import logo from "../../assets/logo.png";
 import styles from "./styles";
 import Layout from "../common/Layout/Layout";
+import { useNavigation } from "@react-navigation/native";
 
-const Welcome = ({ navigation }) => {
+const Welcome = () => {
+  const navigation = useNavigation();
   return (
     <Layout>
       <View style={styles.header}>

@@ -4,7 +4,7 @@ import Layout from "../common/Layout/Layout";
 
 const Calendar = ({ navigation }) => {
   return (
-    <Layout hasNavbar navigation={navigation}>
+    <Layout>
       <Text>Calendar</Text>
     </Layout>
   );

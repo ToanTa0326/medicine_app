@@ -6,6 +6,7 @@ import { useState } from "react";
 import Welcome from "../Welcome/Welcome";
 import Login from "../Login/Login";
 import ResetPassword from "../ResetPassword/ResetPassword";
+import MedicineNavigator from "./MedicineNavigator";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,10 @@ const AppNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {isLoggedIn ? (
-          <Stack.Screen name="HomeNavigator" component={HomeNavigator} />
+          <>
+            <Stack.Screen name="HomeNavigator" component={HomeNavigator} />
+            <Stack.Screen name="MedicineNavigator" component={MedicineNavigator} />
+          </>
         ) : (
           <>
             <Stack.Screen name="Welcome" component={Welcome} />

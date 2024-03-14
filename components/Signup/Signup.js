@@ -6,8 +6,10 @@ import ImageButton from "../common/ImageButton/ImageButton";
 import BasicInput from "../common/BasicInput/BasicInput";
 import { Button } from "react-native-elements";
 import Layout from "../common/Layout/Layout";
+import { useNavigation } from "@react-navigation/native";
 
-const Signup = ({ navigation }) => {
+const Signup = () => {
+  const navigation = useNavigation();
   const [account, setAccount] = useState({
     name: null,
     password: null,
