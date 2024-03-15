@@ -3,8 +3,13 @@ import React from "react";
 import ProductImg from "../../assets/product.png";
 import Layout from "../common/Layout/Layout";
 import STYLES from "../../constant/styles";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import ImageButton from "../common/ImageButton/ImageButton";
+import ArrowLeftIcon from "../../assets/icons/black_arrow_left.png";
 
 const DrugList = () => {
+  const navigation = useNavigation();
+  const route = useRoute();
   const renderProducts = () => {
     const products = [];
     for (let index = 1; index < 29; index++) {
@@ -28,22 +33,32 @@ const DrugList = () => {
     return products;
   };
 
-  const renderRow = ({ item, index }) => {
+  const data = renderProducts();
+
+  const RenderItem = ({ item }) => (
     <Pressable
       style={styles.itemContainer}
-      onPress={() => navigation.navigate("MedicineNavigator", { screen: "DrugDetails", props: item })}
+      onPress={() => navigation.navigate("MedicineNavigator", { screen: "Drug Details", props: item })}
     >
       <Image source={item?.image} />
-      <Text style={styles.itemText}>{`${item?.name} ${index}`}</Text>
-      <Text style={styles.itemVolume}>{item.volume}</Text>
-    </Pressable>;
-  };
+      <Text style={styles.itemText}>{item?.name}</Text>
+      <Text style={styles.itemVolume}>{item?.volume}</Text>
+    </Pressable>
+  );
 
   return (
     <Layout>
-      {/* <ScrollView style={styles.productList}> */}
-      <FlatList data={renderProducts()} renderItem={renderRow} keyExtractor={(item) => item.id} numColumns={3} />
-      {/* </ScrollView> */}
+      <View style={styles.viewBox}>
+        <ImageButton onPress={() => navigation.goBack()} source={ArrowLeftIcon} />
+        <Text style={styles.headerText}>{route.name}</Text>
+      </View>
+      <ScrollView>
+        <View style={styles.productList}>
+          {data.map((item) => (
+            <RenderItem item={item} key={item?.id} />
+          ))}
+        </View>
+      </ScrollView>
     </Layout>
   );
 };
@@ -53,7 +68,11 @@ export default DrugList;
 const styles = StyleSheet.create({
   productList: {
     flex: 1,
-    paddingTop: 20,
+    paddingTop: 16,
+    flexWrap: "wrap",
+    flexDirection: "row",
+    gap: 16,
+    paddingBottom: 40,
   },
   itemContainer: {
     maxWidth: "calc(100% - 16px / 3)",
@@ -69,5 +88,18 @@ const styles = StyleSheet.create({
   },
   itemVolume: {
     color: STYLES.gray,
+  },
+  viewBox: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 12,
+  },
+  headerText: {
+    color: STYLES.blackText,
+    fontSize: 24,
+    fontWeight: "600",
+    flex: 1,
+    textAlign: "center",
+    transform: [{ translateX: -8 }],
   },
 });

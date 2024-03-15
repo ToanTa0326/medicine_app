@@ -55,7 +55,6 @@ export default drugsStyles = StyleSheet.create({
     overflowY: "hidden",
   },
   itemContainer: {
-    maxWidth: "calc(100% - 16px / 3)",
     padding: 20,
     borderRadius: 12,
     borderColor: "#E8F3F1",

@@ -5,7 +5,7 @@ import styleLayout from "./styleLayout";
 const Layout = ({ children }) => {
   return (
     <SafeAreaView style={styleLayout.container}>
-      <View style={{ paddingHorizontal: 24 }}>{children}</View>
+      <View style={{ paddingHorizontal: 24, flex: 1 }}>{children}</View>
     </SafeAreaView>
   );
 };
