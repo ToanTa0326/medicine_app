@@ -5,6 +5,8 @@ import Interaction from "../Interaction/Interaction";
 import InteractionDetails from "../Interaction/InteractionDetails";
 import DrugDetails from "../Drugs/DrugDetails";
 import DrugList from "../Drugs/DrugList";
+import ListRoom from "../Call/ListRoom";
+import Room from "../Call/Room";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +18,8 @@ const MedicineNavigator = () => {
       <Stack.Screen name="Drug Details" component={DrugDetails} />
       <Stack.Screen name="Interaction" component={Interaction} />
       <Stack.Screen name="Interaction Details" component={InteractionDetails} />
+      <Stack.Screen name="ListRoom" component={ListRoom} />
+      <Stack.Screen name="Room" component={Room} />
     </Stack.Navigator>
   );
 };

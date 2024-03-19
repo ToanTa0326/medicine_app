@@ -7,8 +7,12 @@ import BasicInput from "../common/BasicInput/BasicInput";
 import { Button } from "react-native-elements";
 import Layout from "../common/Layout/Layout";
 import { useNavigation } from "@react-navigation/native";
+import { userRegisterCalls } from "../../api/videoCall";
+import { useDispatch } from "react-redux";
+import { login } from "../../reducer/user";
 
 const Signup = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
   const [account, setAccount] = useState({
     name: null,
@@ -22,8 +26,22 @@ const Signup = () => {
     setAccount({ ...account, [filedName]: text });
   };
 
-  const handleSignup = () => {
-    // Sign up API here
+  const handleSignup = async () => {
+    if (account.email?.length && account.password?.length && account.name?.length) {
+      const data = {
+        email: account.email,
+        password: account.password,
+        name: account.name,
+      };
+      try {
+        const user = await userRegisterCalls(data);
+        if (user) {
+          dispatch(login({ token: user?.token, ...user?.user }));
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   return (

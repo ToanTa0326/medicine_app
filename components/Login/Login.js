@@ -9,6 +9,7 @@ import Layout from "../common/Layout/Layout";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { login } from "../../reducer/user";
+import { userLoginCalls } from "../../api/videoCall";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -24,9 +25,20 @@ const Login = () => {
     setPassword(text);
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (email.length !== 0 && password.length !== 0) {
-      dispatch(login({ id: Math.random(10), name: "testUser" }));
+      const data = {
+        email,
+        password,
+      };
+      try {
+        const user = await userLoginCalls(data);
+        if (user) {
+          dispatch(login({ token: user?.token, ...user?.user }));
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

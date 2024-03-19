@@ -5,6 +5,7 @@ import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import DrugIcon from "../../assets/icons/drugs.png";
 import InteractionIcon from "../../assets/icons/interaction.png";
+import CallIcon from "../../assets/icons/call.png";
 
 const SearchMedicine = () => {
   const navigation = useNavigation();
@@ -25,6 +26,10 @@ const SearchMedicine = () => {
         >
           <Image source={InteractionIcon} />
           <Text style={styles.itemText}>Interaction</Text>
+        </Pressable>
+        <Pressable style={styles.itemContainer} onPress={() => navigation.navigate("ListRoom", { screen: "ListRoom" })}>
+          <Image source={CallIcon} style={{ maxWidth: 64, maxHeight: 64, objectFit: "cover" }} />
+          <Text style={styles.itemText}>Call Doctor</Text>
         </Pressable>
       </View>
     </Layout>
