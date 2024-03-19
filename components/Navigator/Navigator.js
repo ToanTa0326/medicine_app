@@ -7,13 +7,7 @@ import Welcome from "../Welcome/Welcome";
 import Login from "../Login/Login";
 import ResetPassword from "../ResetPassword/ResetPassword";
 import MedicineNavigator from "./MedicineNavigator";
-import VoiceCallPage from "../Call/VideoCall";
 import { useSelector } from "react-redux";
-// import {
-//   ZegoCallInvitationDialog,
-//   ZegoUIKitPrebuiltCallWaitingScreen,
-//   ZegoUIKitPrebuiltCallInCallScreen,
-// } from "@zegocloud/zego-uikit-prebuilt-call-rn";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +16,7 @@ const AppNavigator = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    if (user.id !== null) {
+    if (user.token !== null) {
       setIsLoggedIn(true);
     }
   }, [user]);
@@ -32,20 +26,8 @@ const AppNavigator = () => {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {isLoggedIn ? (
           <>
-            {/* <ZegoCallInvitationDialog />
-            <Stack.Screen
-              options={{ headerShown: false }}
-              name="ZegoUIKitPrebuiltCallWaitingScreen"
-              component={ZegoUIKitPrebuiltCallWaitingScreen}
-            />
-            <Stack.Screen
-              options={{ headerShown: false }}
-              name="ZegoUIKitPrebuiltCallInCallScreen"
-              component={ZegoUIKitPrebuiltCallInCallScreen}
-            /> */}
             <Stack.Screen name="HomeNavigator" component={HomeNavigator} />
             <Stack.Screen name="MedicineNavigator" component={MedicineNavigator} />
-            <Stack.Screen name="VideoCall" component={VoiceCallPage} />
           </>
         ) : (
           <>
