@@ -7,8 +7,11 @@ import BasicInput from "../common/BasicInput/BasicInput";
 import { Button } from "react-native-elements";
 import Layout from "../common/Layout/Layout";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { login } from "../../reducer/user";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +25,9 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    // Login API here
+    if (email.length !== 0 && password.length !== 0) {
+      dispatch(login({ id: Math.random(10), name: "testUser" }));
+    }
   };
 
   return (

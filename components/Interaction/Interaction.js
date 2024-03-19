@@ -8,6 +8,7 @@ import DeleteIcon from "../../assets/icons/delete.png";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import ProductImg from "../../assets/product.png";
 import { Button } from "react-native-elements";
+import BasicSearch from "../common/BasicSearch/BasicSearch";
 
 const Interaction = () => {
   const route = useRoute();
@@ -56,14 +57,14 @@ const Interaction = () => {
         <ImageButton onPress={() => navigation.goBack()} source={ArrowLeftIcon} />
         <Text style={styles.headerText}>{route.name}</Text>
       </View>
-      <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-        <Text style={{ marginVertical: 16 }}>Search field</Text>
+      <View style={{ alignItems: "flex-end", marginVertical: 15, gap: 15 }}>
         <Button
           title="Check Interaction"
           buttonStyle={styles.button}
           titleStyle={styles.buttonText}
           onPress={handleCheckInteraction}
         />
+        <BasicSearch />
       </View>
       <FlatList
         data={products}

@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView, Pressable, SectionList, FlatList } from "react-native";
+import { View, Text, Image, Pressable, SectionList, FlatList } from "react-native";
 import React from "react";
 import Layout from "../common/Layout/Layout";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -7,6 +7,7 @@ import ImageButton from "../common/ImageButton/ImageButton";
 import ArrowLeftIcon from "../../assets/icons/black_arrow_left.png";
 import AdsMedicineImg from "../../assets/ads_medicine.png";
 import ProductImg from "../../assets/product.png";
+import BasicSearch from "../common/BasicSearch/BasicSearch";
 
 const Drugs = () => {
   const navigation = useNavigation();
@@ -46,7 +47,9 @@ const Drugs = () => {
         <ImageButton onPress={() => navigation.goBack()} source={ArrowLeftIcon} />
         <Text style={drugsStyles.headerText}>{route.name}</Text>
       </View>
-      <Text style={{ marginVertical: 16 }}>Search field</Text>
+      <View style={{ marginVertical: 15 }}>
+        <BasicSearch />
+      </View>
       <View style={drugsStyles.adsContainer}>
         <View>
           <Text style={drugsStyles.adsText}>Get more information</Text>
